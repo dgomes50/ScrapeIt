@@ -47,11 +47,12 @@ sort(unique(AB$Page))
 AB<-AB[which(AB$Page>0),]
 
 
-plot((AB$Page)~AB$YR)
+plot((AB$Page)~AB$YR, main="Animal Behaviour: slope=-0.03 p<0.001", ylab="Page Numbers", xlab="Year")
 
 m1<-lm(AB$Page~AB$YR)
 summary(m1)
 abline(m1, lwd=3)
+
 
 ### Check to see that loop worked
 #   df1<-read.delim(paste0("AB_1918_2018/",filenames[1]), header=TRUE, sep="\t", row.names=NULL)
