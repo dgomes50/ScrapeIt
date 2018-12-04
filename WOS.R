@@ -55,6 +55,11 @@ m1<-lm(AB$Page~AB$YR)
 summary(m1)
 abline(m1, lwd=3)
 
+plot(log(AB$Page+1)~AB$YR, main="Animal Behaviour: slope=-0.03 p<0.001", ylab="Page Numbers", xlab="Year")
+
+m1<-glm(AB$Page~AB$YR, family=poisson(link="log"))
+summary(m1)
+abline(m1, lwd=3)
 
 ### Ecology
 filenames <- dir(path="EC_1918_2018", all.files = TRUE, recursive=TRUE)
@@ -94,6 +99,13 @@ plot((EC$Page)~EC$YR, main="Ecology: slope=0.007 p<0.001", ylEC="Page Numbers", 
 m1<-lm(EC$Page~EC$YR)
 summary(m1)
 abline(m1, lwd=3)
+
+plot(log1p(EC$Page)~EC$YR, main="Ecology: slope=0.007 p<0.001", ylEC="Page Numbers", xlab="Year")
+
+m1<-glm(EC$Page~EC$YR, family=poisson(link="log"))
+summary(m1)
+abline(m1, lwd=3)
+
 
 
 
